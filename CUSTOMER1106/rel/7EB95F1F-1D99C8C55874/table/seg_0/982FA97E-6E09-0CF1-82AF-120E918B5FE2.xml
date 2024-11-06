@@ -1,0 +1,114 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="982FA97E-6E09-0CF1-82AF-120E918B5FE2" name="CUSTOMER">
+<createdBy>user1</createdBy>
+<createdTime>2024-11-06 06:20:14 UTC</createdTime>
+<ownerDesignName>CUSTOMER1106</ownerDesignName>
+<ordsAlias>table_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="code" directorySegmentName="seg_0" id="30F29310-E767-A90E-A3EB-0FA9E273E5E4">
+<createdBy>user1</createdBy>
+<createdTime>2024-11-06 06:25:22 UTC</createdTime>
+<ownerDesignName>CUSTOMER1106</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>7 CHAR</dataTypeSize>
+<ownDataTypeParameters>7 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="name" directorySegmentName="seg_0" id="5324BB0B-5FBD-863F-D231-7ED44C8FCC9D">
+<createdBy>user1</createdBy>
+<createdTime>2024-11-06 06:25:22 UTC</createdTime>
+<ownerDesignName>CUSTOMER1106</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="gender" directorySegmentName="seg_0" id="23C5A465-6A15-02EB-6B28-ACEF245859F4">
+<createdBy>user1</createdBy>
+<createdTime>2024-11-06 06:25:54 UTC</createdTime>
+<ownerDesignName>CUSTOMER1106</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="birth" directorySegmentName="seg_0" id="75A35087-5835-FC17-7917-EA980769144C">
+<createdBy>user1</createdBy>
+<createdTime>2024-11-06 06:26:26 UTC</createdTime>
+<ownerDesignName>CUSTOMER1106</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>8 CHAR</dataTypeSize>
+<ownDataTypeParameters>8 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="pone" directorySegmentName="seg_0" id="C3BB2303-65EA-BD9A-CA6C-F44B97A0C218">
+<createdBy>user1</createdBy>
+<createdTime>2024-11-06 06:27:24 UTC</createdTime>
+<ownerDesignName>CUSTOMER1106</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>16 CHAR</dataTypeSize>
+<ownDataTypeParameters>16 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="email" directorySegmentName="seg_0" id="80DC5DB5-37DD-D05A-B554-4EF90A8413C3">
+<createdBy>user1</createdBy>
+<createdTime>2024-11-06 06:28:16 UTC</createdTime>
+<ownerDesignName>CUSTOMER1106</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="point" directorySegmentName="seg_0" id="E8793AE3-3E9D-163A-23D9-325E2D3F0A0F">
+<createdBy>user1</createdBy>
+<createdTime>2024-11-06 06:29:24 UTC</createdTime>
+<ownerDesignName>CUSTOMER1106</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5488AA8F-4632-D18F-DBAF-AFACEF917B8B" name="CUSTOMER_CODE_PK">
+<createdBy>user1</createdBy>
+<createdTime>2024-11-06 06:25:22 UTC</createdTime>
+<ownerDesignName>CUSTOMER1106</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="30F29310-E767-A90E-A3EB-0FA9E273E5E4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DBF7178F-8C60-D1AC-9C53-71EF904EECB0" name="CUSTOMER_EMAIL_UK">
+<createdBy>user1</createdBy>
+<createdTime>2024-11-06 06:31:34 UTC</createdTime>
+<ownerDesignName>CUSTOMER1106</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="80DC5DB5-37DD-D05A-B554-4EF90A8413C3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
