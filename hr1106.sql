@@ -154,6 +154,13 @@ DELETE FROM DEPT01 WHERE NO = 40;
 ALTER TABLE MEMBER DROP CONSTRAINT MEMBER_DEPT_NO_FK;
 ALTER TABLE MEMBER ADD CONSTRAINT MEMBER_DEPT_NO_FK FOREIGN KEY(DEPT_NO) REFERENCES DEPT01(NO)ON DELETE CASCADE;
 
+--
+select * from user_ind_columns where table_name = upper('member');
+
+desc employees;
+select * from user_constraints where table_name = upper('employees');
+select  * from employees;
+select * from employees where employee_id = 100;
 
 
 
