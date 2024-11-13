@@ -46,6 +46,80 @@ SELECT EMPLOYEE_ID, FIRST_NAME FROM EMPLOYEES ORDER BY EMPLOYEE_ID DESC;
 -- GROUB BY 
 SELECT DEPARTMENT_ID, SUM(SALARY) FROM EMPLOYEES
 GROUP BY DEPARTMENT_ID HAVING DEPARTMENT_ID = 30;
+<<<<<<< HEAD
+
+SELECT  * FROM EMPLOYEES;
+SELECT  * FROM EMPLOYEES WHERE DEPARTMENT_ID >= 70;
+SELECT DEPARTMENT_ID, SALARY FROM EMPLOYEES WHERE DEPARTMENT_ID >= 70;
+SELECT DEPARTMENT_ID, SALARY FROM EMPLOYEES WHERE DEPARTMENT_ID >= 70 GROUP BY DEPARTMENT_ID ;
+SELECT DEPARTMENT_ID, MAX(SALARY), MIN(SALARY),SUM(SALARY) ROUND(AVG(SALARY),1), COUNT(SALARY) FROM EMPLOYEES WHERE DEPARTMENT_ID >= 70 GROUP BY DEPARTMENT_ID ;
+
+-- 03년도에 입사한 사원 알아내기
+Select 입사년도, 사원이름 from employees where TO_CHAR(hire_date, ‘YY’) = ‘03’;  
+select hire_date, TO_CHAR(hire_date,'YY/MM/DD HH24:MI:SS'),  TO_CHAR(hire_date,'MI')  from employees;
+select TO_DATE('20041214','YYYY/MM/DD')+1 from dual; 
+
+-- 이름이 k로 끝나는 직원을 검색
+select first_name from employees;
+select first_name from employees where first_name like '%k';
+select first_name from employees where upper(substr(first_name, LENGTH(first_name),1)) = UPPER('k');
+
+-- 현재시간표현
+select sysdate from dual;
+select to_char(sysdate,'YYYY/MM/DD HH24:MI:SS') from dual;
+select FLOOR(sysdate - TO_DATE('2024/11/05', 'YYYY/MM/DD')) from dual;
+
+-- 숫자를 우리가 원하는 형식으로 출력하기 1234567.23 => $1,234,567.23
+select trim(to_char(1234567.23, 'L999,999,999,999.99')) as money from dual; 
+select first_name, trim(to_char(salary, 'L999,999,999,999.99')) as salary from employees; 
+
+-- 문자 + 문자 = 숫자
+select to_number('10,000', '999,999') + to_number('20,000','999,999') from dual;
+select to_number('10,000', '999999') from dual;
+
+-- NVL
+select first_name, salary, commission_pct, job_id from employees order by job_id;
+select first_name, salary, nvl(commission_pct,0) commission_pct, job_id from employees order by job_id;
+
+-- NVL2(대상, 널이아닐때 적용될값, 널일때 적용될값)
+select first_name, salary, commission_pct, salary+(salary*commission_pct) as total from employees; 
+select first_name, salary, commission_pct, salary+(salary*NVL(commission_pct,0)) as total from employees;
+select first_name, salary, commission_pct, salary+(salary*NVL2(commission_pct,commission_pct, 0)) as total from employees;
+
+-- 부서별에 따라 급여를 인상하도록 하자.(조인: inner join, outer join, self join, cross join) 
+-- (직원번호, 직원명, 직급, 급여)
+--  부서ID에 따라서  'Marketing'인 직원은 5%, 'Purchasing'인 사원은 10%,
+-- 'Human Resources'인 사원은 15%, ' IT'인 직원은 20%인 인상한다.
+select * from departments;
+select employee_id, first_name, salary, department_id from employees;
+select * from employees inner join departments on employees.department_id = departments.department_id;
+
+select employee_id, first_name, job_id, salary, E.department_id, D.department_name,
+        case
+        when upper(D.department_name) = upper('Marketing') then salary*1.05
+        when upper(D.department_name) = upper('Purchasing') then salary*1.10
+        when upper(D.department_name) = upper('Human Resources') then salary*1.15
+        when upper(D.department_name) = upper('IT') then salary*1.20
+        end NEWSALARY
+from employees E inner join departments D on E.department_id = D.department_id
+where upper(D.department_name) in (upper('Marketing'),upper('Purchasing'),upper('Human Resources'),upper('IT'))
+order by NEWSALARY DESC;
+
+-- 지연
+select employee_id, first_name, E.department_id, salary,
+        decode(upper(D.department_name),upper('Marketing'), salary*1.05, upper('Purchasing'), salary*1.1, 
+        upper('Human Resources'), salary*1.15, upper('IT'), salary*1.2) as salary2
+from departments D inner join employees E on E.department_id = D.department_id
+where upper(D.department_name) in (upper('Marketing'),upper('Purchasing'),upper('Human Resources'),upper('IT'))
+order by salary2 DESC;
+
+
+
+
+
+
+
+=======
 SELECT  * FROM EMPLOYEES;
 SELECT  * FROM EMPLOYEES WHERE DEPARTMENT_ID >= 70;
 SELECT DEPARTMENT_ID, SALARY FROM EMPLOYEES WHERE DEPARTMENT_ID >= 70;
@@ -67,5 +141,6 @@ SELECT FIRST_NAME, HIRE_DATE AS 입사일, SYSDATE AS 현재날짜,
 ROUND(MONTHS_BETWEEN(SYSDATE, HIRE_DATE)) AS "근무달수" FROM EMPLOYEES WHERE DEPARTMENT_ID = 30;  
 -- NEXT_DAY() 함수의기능
 SELECT SYSDATE,TO_CHAR(SYSDATE, 'YYYY/MM/DD HH24:MI:SS') ,NEXT_DAY(SYSDATE, '수요일') FROM DUAL;
+>>>>>>> 65ef018985bea3c8b116e61e6ffe704d7050d9d1
 
 
