@@ -11,6 +11,7 @@ create table EMP01(
     CONSTRAINT EMP01_no_PK primary key(no),
     CONSTRAINT emp01_name_uk UNIQUE(name)
 );
+<<<<<<< HEAD
 -- 테이블 정보구하기
 select * from tab;
 -- 테이블 삭제하기 ddl
@@ -69,3 +70,5 @@ select * from user_constraints where table_name = 'CUSTOMER';
 
 
 
+=======
+>>>>>>> 65ef018985bea3c8b116e61e6ffe704d7050d9d1
