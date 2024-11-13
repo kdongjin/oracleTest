@@ -200,10 +200,44 @@ group by department_id
 select first_name, salary, hire_date, e.department_id , 
 (select min(salary) from employees where department_id = e.department_id group by department_id) from employees e
 order by e.department_id desc;
-;
-
 
 select min(salary) from employees where department_id = 10 group by department_id; 
+
+-- 사원의 급여 정보중 업무별 최소 급여를 받고 있는 사원의 성과 이름, 업무, 급여 , 입사일을 출력하시오
+-- 업무별 최소급여
+select job_id, min(salary) from employees  group by job_id; 
+select  min(salary) from employees  group by job_id; 
+select first_name, job_id, salary, hire_date from employees where job_id = '잡아이디' and salary = '최소금액'; 
+select first_name, job_id, salary, hire_date from employees 
+where (job_id, salary) in (select job_id, min(salary) from employees  group by job_id);
+
+-- 소속부서 평균 급여보다 많은 급여를 받는 사원에 대하여 사원의 성과 이름, 급여, 부서번호, 업무를 출력하시오.
+
+select round(avg(salary)) from employees  where department_id = 90 group by department_id; 
+
+select first_name, salary, E.department_id, job_id from employees E
+where E.salary > (select round(avg(salary)) from employees  where department_id = E.department_id group by department_id)
+order by department_id;
+
+-- 모든 사원의 소속부서 평균급여를 게산하여 사원별로 이름과 업무, 급여, 부서번호, 부서 평균급여(department_avg_salary)를 출력하시오.
+select round(avg(salary)) from employees where department_id = 90 group by department_id; 
+
+select first_name, salary, E.department_id, 
+(select round(avg(salary)) from employees where department_id = E.department_id group by department_id) as "부서평균급여" from employees E; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
