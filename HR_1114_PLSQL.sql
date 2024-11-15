@@ -1,32 +1,21 @@
 -- PL/SQL 
--- 구구단 작성하기 
+-- EMPLOYEES 테이블에 등록된 총사원의 수와
+-- 급여의 합, 급여의 평균을 변수에 대입하여 출력하 
 DECLARE
-    VNUM NUMBER :=3;
-    VCOUNT NUMBER :=1;
-    VDAN NUMBER :=0; 
+    TOTAL_EMPLOYEE NUMBER(4);
+    TOTAL_SALARY NUMBER(10);
+    AVG_SALARY NUMBER(10);
 BEGIN
-    LOOP 
-        VDAN := VDAN + 1;
-        VCOUNT := 1; 
-        DBMS_OUTPUT.PUT_LINE('=========='||VDAN ||'단==========');
-        -- VDAN 단을 출력
-        LOOP 
-            DBMS_OUTPUT.PUT_LINE(VDAN ||' * ' || VCOUNT ||' = '||VDAN*VCOUNT);
-            VCOUNT := VCOUNT+1;
-            IF VCOUNT > 9  THEN 
-                EXIT;
-            END IF;
-        END LOOP;
-        DBMS_OUTPUT.PUT_LINE('');
-        -- 단 출력
-        IF VDAN > 9  THEN 
-           EXIT;
-        END IF;
-    END LOOP;
+   SELECT COUNT(EMPLOYEE_ID),SUM(SALARY),ROUND(AVG(SALARY))
+   INTO TOTAL_EMPLOYEE,TOTAL_SALARY,AVG_SALARY
+   FROM EMPLOYEES;
+
+   DBMS_OUTPUT.PUT_LINE('총사원의 수: '||TOTAL_EMPLOYEE);
+   DBMS_OUTPUT.PUT_LINE('급여의 합: '||TOTAL_SALARY);
+   DBMS_OUTPUT.PUT_LINE('급여의 평균: '||AVG_SALARY);
 END;
 /
 
-
-
+select count(*), sum(salary), round(avg(salary)) from employees; 
 
 
