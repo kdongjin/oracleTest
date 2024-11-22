@@ -1,0 +1,31 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableSpaceOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TableSpaceOraclev10g" name="USERS" directorySegmentName="seg_0" id="3C9C55D4-768F-7849-B19E-3F87A35A8ED2">
+<sourceConnName>로컬-SUBJECTDB</sourceConnName>
+<sourceObjSchema>SUBJECTDB</sourceObjSchema>
+<sourceObjName>USERS</sourceObjName>
+<createdBy>user1</createdBy>
+<createdTime>2024-11-22 03:50:31 UTC</createdTime>
+<ownerDesignName>SUBJECT</ownerDesignName>
+<dsInitialExtent>65536</dsInitialExtent>
+<dsMaxExtents>2147483645</dsMaxExtents>
+<emUniformSize>0</emUniformSize>
+<extentManagement>LOCAL</extentManagement>
+<minExtLen>65536</minExtLen>
+<dsCompression>NOCOMPRESS</dsCompression>
+<encrypt>NO</encrypt>
+<fileType>SMALLFILE</fileType>
+<inMemory>NO</inMemory>
+<dataFiles>
+<DataFile class="oracle.dbtools.crest.model.design.storage.oracle.v10g.DataFileOraclev10g" name="USERS01.DBF" id="E65407E2-1DC9-946F-E645-1095CF0D256F">
+<sourceConnName>로컬-SUBJECTDB</sourceConnName>
+<sourceObjName>C:\ORACLEXE\ORADATA\XE\USERS01.DBF</sourceObjName>
+<createdBy>user1</createdBy>
+<createdTime>2024-11-22 04:29:59 UTC</createdTime>
+<ownerDesignName>SUBJECT</ownerDesignName>
+<autoextend>ON</autoextend>
+<fileName>C:\ORACLEXE\ORADATA\XE\USERS01.DBF</fileName>
+<nextBlockSize>1280</nextBlockSize>
+<size>7680</size>
+</DataFile>
+</dataFiles>
+</TableSpaceOraclev10g>
