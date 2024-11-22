@@ -11,6 +11,8 @@ create sequence subject_seq
 start with 1
 increment by 1; 
 
+insert into subject(no, num, name) values (subject_seq.nextval, ?, ?);
+
 -- 학생
 create table student( 
     no number,                    --pk, seq
@@ -36,6 +38,9 @@ create sequence student_seq
 start with 1
 increment by 1; 
 
+select COUNT(*) AS COUNT from student where id = 10;
+-- 동일학과번호 총갯수
+select LPAD(count(*)+1,4,'0') as total_count from student where s_num = 10; 
 -- lesson 과목
 
 create table lesson( 
