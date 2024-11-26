@@ -1,3 +1,11 @@
+-- 자바 프로젝트 사용자계정 생성하기
+ALTER SESSION SET "_ORACLE_SCRIPT"=true;
+DROP USER subjectdb CASCADE; -- 기존 사용자 삭제
+CREATE USER subjectdb IDENTIFIED BY 123456 -- 사용자 이름: Model, 비밀번호 : 1234
+    DEFAULT TABLESPACE USERS    -- 데이터 저장소
+    TEMPORARY TABLESPACE TEMP;   -- 임시저장장소
+GRANT connect, resource, dba TO SUBJECTDB; -- 권한 부여
+
 -- 학과 (01-컴퓨터학과 / 02-교육학과 / 03-신문방송학과 / 04-인터넷비즈니스과 / 05-기술경영과)
 create table subject( 
     no number,                 -- pk, seq
@@ -12,6 +20,11 @@ start with 1
 increment by 1; 
 
 insert into subject(no, num, name) values (subject_seq.nextval, ?, ?);
+select * from subject;
+DELETE FROM SUBJECT WHERE NUM = '05';
+UPDATE SUBJECT SET NAME ='보안학과' WHERE NUM = '03';
+SELECT * FROM SUBJECT ORDER BY NUM;
+COMMIT; 
 
 -- 학생
 create table student( 
@@ -38,9 +51,17 @@ create sequence student_seq
 start with 1
 increment by 1; 
 
+insert into student values(student_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, sysdate); 
 select COUNT(*) AS COUNT from student where id = 10;
 -- 동일학과번호 총갯수
-select LPAD(count(*)+1,4,'0') as total_count from student where s_num = 10; 
+select LPAD(count(*)+1,4,'0') as total_count from student where s_num = '05'; 
+select * from student;
+-- SUBJECT STUDENT INNER JOIN
+SELECT STU.NO, STU.NUM, STU.NAME, STU.ID,PASSWD,STU.S_NUM,SUB.NAME AS SUBJECT_NAME ,BIRTHDAY,PHONE,ADDRESS, EMAIL, SDATE
+FROM STUDENT STU INNER JOIN SUBJECT SUB ON STU.S_NUM = SUB.NUM ; 
+
+
+
 -- lesson 과목
 
 create table lesson( 
