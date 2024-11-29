@@ -39,6 +39,13 @@ public static void main(String[] args){
 # 하이퍼링크(Hyperlink)
 kh홈페이지 <https://khacademy.co.kr/>
 
+# 이미지
+첫번째방법 : ![프로젝트이미지](/miniproject_pic01.png)
+___
+두번째방법 : <img src="https://github.com/kdongjin/oracleTest/blob/f5a0620b33007617ac824c3206972f62f943988f/miniproject_pic01.png"  width="100px" height="100px">
+
+
+
 
 
 
