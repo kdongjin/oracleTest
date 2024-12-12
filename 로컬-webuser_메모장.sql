@@ -139,3 +139,9 @@ CREATE TABLE  BOARD(
    );
 ALTER TABLE BOARD ADD CONSTRAINT BOARD_NUM_PK PRIMARY KEY(NUM);
 
+CREATE SEQUENCE BOARD_SEQ  -- 시퀀스이름
+   START        WITH 1     -- 시작을 1로 설정
+   INCREMENT    BY 1       -- 증가값을 1씩 증가
+   NOMAXVALUE              -- 최대값이 무한대..
+   NOCACHE
+   NOCYCLE;
